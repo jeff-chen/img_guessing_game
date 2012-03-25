@@ -5,17 +5,17 @@ $(document).ready(function() {
   $('button#guesser').click(function(){
 	  var guessword = $('input.funtimes')[0].value;
 	  if(guessword.length == 0){
-	  	$('.infowars')[0].innerHTML = ("you didn't guess anything!");
+	  	$('.infowars')[0].innerHTML = ("Please enter a guess.");
 	  } else {
 	  	if (guessword.toLowerCase() == answer) {
-	  		$('.infowars')[0].innerHTML = ("You guessed it right!");
+	  		$('.infowars')[0].innerHTML = ("Congratulations, you win!");
 	  	} else {
-	  		bad_message = "You guessed wrong!!"
+	  		bad_message = "Incorrect."
 	  		//count the number of guesses remaining
 	  		var remaining = parseInt($('span.remainder')[0].innerHTML);
 	  		remaining = remaining - 1;
 	  		if(remaining == 0){
-	  			bad_message = bad_message + "\nYou have lost, the answer was " + answer;
+	  			bad_message = bad_message + "\nThe answer was " + answer;
 	  		} else {
 	  			//add the next image
 	  			addNextImage();

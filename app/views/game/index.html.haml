@@ -8,22 +8,22 @@
 = hidden_field @topic, {}, {:class => 'true_answer', :secret_answer => @topic}
 
 #thisgoeslower.container.hero-unit
-  %h3
-    Guess what the topic is.
-  %br
-  %span.remainder
-    5
-  guesses remaining
-
-  %br
-  %br
-  %input.funtimes{:placeholder => 'Enter your guess here.'}
-  %br
-  %button{:id => 'guesser', :class => 'btn btn-primary'}
-    Guess
+  .row
+    .span12
+      %h3
+        Guess the topic.
+      %p
+        %span.remainder
+          5
+        guesses remaining
+      %input.funtimes{:placeholder => 'Enter your guess here.', :height => '40px'}
+      %button{:id => 'guesser', :class => 'btn btn-primary btn-large'}
+        Guess
+      %a{:class => 'btn btn-large', :href => '/'} New Word
+      %label.infowars
+      
 
 #clues.container.hero-unit
 
 
 
-%label.infowars
