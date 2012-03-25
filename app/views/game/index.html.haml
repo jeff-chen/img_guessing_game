@@ -7,22 +7,23 @@
   = hidden_field image, {:hidden => true}, {:class => 'omg', :secret_key => image}
 = hidden_field @topic, {}, {:class => 'true_answer', :secret_answer => @topic}
 
-#clues
-
-#thisgoeslower
-  Guess what the topic is:
+#thisgoeslower.container.hero-unit
+  %h3
+    Guess what the topic is.
   %br
-    U have
   %span.remainder
     5
-  guesses left.
+  guesses remaining
 
   %br
   %br
-  What could it be?
-  %input.funtimes
+  %input.funtimes{:placeholder => 'Enter your guess here.'}
   %br
-  %button{:id => 'guesser'}
-    Press me!
+  %button{:id => 'guesser', :class => 'btn btn-primary'}
+    Guess
+
+#clues.container.hero-unit
+
+
 
 %label.infowars
