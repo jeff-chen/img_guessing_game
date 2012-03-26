@@ -7,9 +7,12 @@
 # Ignore bundler config
 /.bundle
 
+/config/api_keys.txt
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+*.csv

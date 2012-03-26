@@ -1,1 +1,4 @@
 Before this can run u need to import the data to be guessed on
+
+Also generate this file:
+/config/api_keys.txt
