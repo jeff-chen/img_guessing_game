@@ -17,4 +17,12 @@ Erica
 
 2. Description/How it works
 
-A python script downloads 1000 recent comments from the NYTimes using the NYTimes comments API.  The comments' bodies are parsed and submitted to Parsely which identifies entities, then the entities are counted.  Relevant entities (count >= 3 and length of name >= 4 to avoid abbreviations ) are then used to find all pictures on Tumblr tags with the same tag as that entity and the urls of those images are stored on the database.  When the front page is loaded (the game is started), a topic is chosen from the database at random which has at least 5 image urls associated to it.  The game logic is written mostly in javascript, and the user must guess the associated topic with each image, having 5 total guesses.
+A python script downloads 1000 recent comments from the NYTimes using the NYTimes comments API.  The comments' bodies are parsed and submitted to Parsely which identifies entities, then the entities are counted.  Relevant entities (count >= 3 and length of name >= 4 to avoid abbreviations ) are then used to find all pictures on Tumblr tags with the same tag as that entity and the urls of those images are stored on the database.  When the front page is loaded (the game is started), a topic is chosen from the database at random which has at least 5 image urls associated to it.  The game logic is written mostly in javascript, and the user must guess the associated topic with each image, having 5 total guesses.  
+
+3. Todo (if theoretically we had infinite time)
+
+-Block naughty images from tumblr - this may come up during the demo so if it does try your best to play it off or something.  It might be nice to warn the audience beforehand.
+
+-If anyone asks, answers are labeled within the hidden fields
+
+-The same 5 pictures are taken for each topic, because I haven't figured out how to truly take 5 images at random from a SQL table that returns more than 5 results.
