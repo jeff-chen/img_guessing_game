@@ -1,4 +1,7 @@
 Before this can run u need to import the data to be guessed on
 
 Also generate this file:
-/config/api_keys.txt
+/config/api_keys.txt and put just the api key in it
+
+To set up, run:
+rake 

@@ -15,6 +15,14 @@ namespace :populate do
     end
   end
   
+  desc 'Python script'
+  task :pyscript => :environment do
+    system "python hack.py"
+  end
+  
+  desc 'setup'
+  task :setup => [:environment, :pyscript, :say_hi, :get_images]
+  
   desc 'get images'
   task :get_images => :environment do
     keyfile = File.open('config/api_keys.txt')
