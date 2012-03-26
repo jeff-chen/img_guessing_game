@@ -16,3 +16,5 @@
 /log/*.log
 /tmp
 *.csv
+
+app/assets/.DS_Store
