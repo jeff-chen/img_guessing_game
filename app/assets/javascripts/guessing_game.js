@@ -30,7 +30,7 @@ $(document).ready(function() {
 		var images_remaining = $('.omg').size();
 		var picked = Math.floor(Math.random()*images_remaining);
 		var image_url = $('input.omg')[picked].attributes['secret_key'].firstChild.wholeText;
-		unsafe_image = "<image src=" + image_url + ">";
+		unsafe_image = "<image src=" + image_url + " width=\"400px\">";
 		$('input.omg')[picked].removeAttribute('class');
 		$('#clues').prepend(unsafe_image);
 	}

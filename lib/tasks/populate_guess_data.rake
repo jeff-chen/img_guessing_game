@@ -1,3 +1,7 @@
+require 'json'
+require 'net/http'
+require 'ruby_debug'
+
 namespace :populate do
   desc 'say hi'
   task :say_hi => :environment do
@@ -9,6 +13,25 @@ namespace :populate do
         TopicHitCount.create!(:topic => row[0], :hits => row[1].to_i)
       end
     end
-    #TopicHitCount.create!(:topic => "Obama", :hits => 50)
+  end
+  
+  desc 'get images'
+  task :get_images => :environment do
+    keyfile = File.open('config/api_keys.txt')
+    apikey = keyfile.readlines.first
+    TopicImageLink.delete_all
+    TopicHitCount.find(:all, :select => "topic").map(&:topic).uniq.each do |t|
+      puts "getting stuff for #{t}..."
+      x = Net::HTTP.get(URI.parse("http://api.tumblr.com/v2/tagged?tag=#{t.gsub(/\s+/, '+')}&api_key=#{apikey}"))
+      parsed = JSON.parse(x) if !x.blank?
+      #debugger
+      if !x.blank? and parsed["response"].any?
+        if parsed["response"].select{|i| i["type"] == "photo"}.map{|i| i["photos"].first["original_size"]["url"]}.size >= 5
+          parsed["response"].select{|i| i["type"] == "photo"}.map{|i| i["photos"].first["original_size"]["url"]}.each do |url|
+            TopicImageLink.create!(:topic => t, :link => url)
+          end
+        end
+      end
+    end
   end
 end
