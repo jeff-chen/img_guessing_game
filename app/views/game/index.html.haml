@@ -1,0 +1,28 @@
+#intro
+
+
+#hidden_stuff
+- @images.each do |image|
+  - #the ugly one
+  = hidden_field image, {:hidden => true}, {:class => 'omg', :secret_key => image}
+= hidden_field @topic, {}, {:class => 'true_answer', :secret_answer => @topic}
+
+#clues
+
+#thisgoeslower
+  Guess what the topic is:
+  %br
+    U have
+  %span.remainder
+    5
+  guesses left.
+
+  %br
+  %br
+  What could it be?
+  %input.funtimes
+  %br
+  %button{:id => 'guesser'}
+    Press me!
+
+%label.infowars
